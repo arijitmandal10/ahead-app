@@ -7,7 +7,7 @@ import styles from './navbar.module.css';
 const Navbar = () => {
 	return (
 		<nav className={styles.nav}>
-			<Image height={50} width={50} src={logo} alt='img' />
+			<Image height={50} className={styles['zoom-in']} width={50} src={logo} alt='img' />
 
 			<ul>
 				<li>Emotions</li>
@@ -22,6 +22,10 @@ const Navbar = () => {
 					background: 'black',
 					borderRadius: '25px',
 					textTransform: 'unset',
+					'&:hover': {
+						background: 'white',
+						color: 'black',
+					},
 				}}
 			>
 				Download App

@@ -1,9 +1,14 @@
-.cardslider > p {
+.cardslider > div > p {
 	font-size: xxx-large;
 	font-weight: 700;
 	width: 85%;
 	margin: 65px auto;
 }
+
+.cardslider.in-viewport > div > p {
+	transform: translateX(0);
+}
+
 .cardContainer {
 	display: flex;
 	width: 100%;
@@ -13,6 +18,7 @@
 	overflow-x: scroll; /* Enable horizontal scrolling when content overflows */
 	scrollbar-width: none; /* Firefox */
 	-ms-overflow-style: none; /* Internet Explorer/Edge */
+	animation: scrollRight 10s linear infinite;
 }
 
 .cardContainer::-webkit-scrollbar {

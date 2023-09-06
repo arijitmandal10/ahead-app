@@ -4,6 +4,7 @@
 	padding: 15px 70px;
 	margin-bottom: 21px;
 }
+
 .nav > ul {
 	display: flex;
 	justify-content: space-between;
@@ -11,6 +12,21 @@
 	list-style: none;
 	font: icon;
 }
-.MuiButton-root.Mui-focused {
-	color: black;
+
+.nav > ul li {
+	transition: transform 0.3s ease-in-out;
+}
+
+.nav > ul li:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.zoom-in {
+	transition: transform 0.3s ease-in-out;
+}
+
+/* Apply the zoom-in animation on hover */
+.zoom-in:hover {
+	transform: scale(1.1);
 }

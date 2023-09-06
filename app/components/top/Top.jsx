@@ -1,11 +1,29 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 import top from '../../assets/top.png';
 import Image from 'next/image';
 import styles from './top.module.css';
+
 const Top = () => {
+	const imageWrapperRef = useRef(null);
+
+	useEffect(() => {
+		const imageWrapper = imageWrapperRef.current;
+
+		// Create a GSAP animation for the rotation with a faster duration
+		gsap.to(imageWrapper, {
+			rotation: 360, // Rotate 360 degrees
+			duration: 0.5, // Decreased duration for faster rotation
+			ease: 'power1.inOut', // Easing function
+		});
+	}, []);
+
 	return (
 		<div className={styles.card}>
-			<Image src={top} />
+			<div ref={imageWrapperRef} className={styles.imageWrapper}>
+				<Image src={top} />
+			</div>
 			<div>
 				<div style={{ width: '74%' }}>
 					{' '}
