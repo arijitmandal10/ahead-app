@@ -1,0 +1,54 @@
+.container {
+	width: 86%;
+	margin: 70px auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.container > p {
+	font-size: xxx-large;
+	font-weight: 700;
+}
+.container > img {
+	margin-top: 65px;
+	align-self: center;
+}
+
+.cards {
+	display: flex;
+	justify-content: space-between;
+	gap: 50px;
+}
+
+.cards > div {
+	padding: 10px;
+	font-weight: 600;
+	background: #faebd7c4;
+	overflow: hidden;
+	border-radius: 15px;
+	height: 12em;
+	transition: height 0.8s ease-in-out;
+}
+
+.cards > div:hover {
+	height: 15em;
+}
+
+.cards > div > h2 {
+	padding-inline: 25px;
+}
+
+.cards > div > ul > li {
+	opacity: 0.7;
+	margin-bottom: 8px;
+}
+
+.cards > div > button {
+	margin-left: 35px;
+	display: none;
+}
+
+.cards > div:hover > button {
+	display: inherit;
+}

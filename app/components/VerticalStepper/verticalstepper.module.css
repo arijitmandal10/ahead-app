@@ -1,0 +1,27 @@
+.top > p {
+	font-size: xxx-large;
+	font-weight: bold;
+	margin: auto;
+}
+.top > h3 {
+	font-weight: 300;
+}
+
+.steps {
+	width: 85%;
+	margin: auto;
+}
+.bottom {
+	display: flex;
+	width: 94%;
+	margin: 70px auto;
+	gap: 114px;
+}
+.bottom > div > h1 {
+	width: 75%;
+}
+.bottom > div > p {
+	font-weight: 500;
+	font-size: 19px;
+	opacity: 0.8;
+}

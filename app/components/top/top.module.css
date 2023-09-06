@@ -1,0 +1,23 @@
+.card {
+	width: 88%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 60px;
+}
+.card > img {
+	width: 100%;
+}
+.card > div {
+	display: flex;
+	justify-content: space-evenly;
+	gap: 5%;
+	width: 95%;
+	margin: auto;
+}
+.card > div > div > p {
+	font-size: 21px;
+	padding: 12px;
+	font-weight: 500;
+	opacity: 0.8;
+}

@@ -1,0 +1,41 @@
+.cardslider > p {
+	font-size: xxx-large;
+	font-weight: 700;
+	width: 85%;
+	margin: 65px auto;
+}
+.cardContainer {
+	display: flex;
+	width: 100%;
+	margin: auto;
+	gap: 40px;
+	padding: 55px 0px;
+	overflow-x: scroll; /* Enable horizontal scrolling when content overflows */
+	scrollbar-width: none; /* Firefox */
+	-ms-overflow-style: none; /* Internet Explorer/Edge */
+}
+
+.cardContainer::-webkit-scrollbar {
+	/* Webkit (Safari, Chrome) scrollbar */
+	display: none; /* Hide the scrollbar */
+}
+
+.cardContainer > div {
+	min-width: 23%;
+	height: 15em;
+	padding: 14px;
+	font-size: 14px;
+	margin-right: 10px;
+	border-radius: 14px;
+}
+
+.cardContainer > div:last-child {
+	margin-right: 0; /* Remove margin from the last card */
+}
+
+.cardContainer > div > h1 {
+	margin: 0px;
+}
+.cardslider {
+	margin: auto;
+}

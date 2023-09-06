@@ -1,0 +1,16 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 70px;
+	margin-bottom: 21px;
+}
+.nav > ul {
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+	list-style: none;
+	font: icon;
+}
+.MuiButton-root.Mui-focused {
+	color: black;
+}

@@ -1,0 +1,24 @@
+.card2 {
+	display: flex;
+	padding: 40px 0px;
+	justify-content: flex-start;
+	gap: 5%;
+	width: 85%;
+	margin: 70px auto;
+	background: #ffedd370;
+	border-radius: 23px;
+}
+.right {
+	display: flex;
+	flex: 0.7;
+}
+.left > p {
+	font-size: xxx-large;
+	font-weight: bold;
+	margin: auto;
+}
+.right > h6 {
+	align-self: center;
+	opacity: 0.7;
+	line-height: 35px;
+}
