@@ -28,10 +28,10 @@ const CardSlider = () => {
 				{
 					width: '95%',
 					height: '67px',
-					overflow: ' hidden', // Increase to 100% width
+					overflow: ' hidden',
 					opacity: 1,
 
-					duration: 2, // Adjust the duration as needed
+					duration: 2,
 					ease: 'power2.out',
 				},
 			);
@@ -51,7 +51,7 @@ const CardSlider = () => {
 				{ x: containerWidth }, // Start with initial x position outside the container
 				{
 					x: -containerWidth, // Move to the left by the width of the container
-					duration: 10, // Adjust the duration as needed
+					duration: 10,
 					ease: 'linear',
 					repeat: -1, // Repeat the animation infinitely
 				},
