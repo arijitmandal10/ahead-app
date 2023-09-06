@@ -3,6 +3,7 @@
 	font-weight: 700;
 	width: 85%;
 	margin: 65px auto;
+	transition: transform 1s ease-in-out; /* Transition for sliding effect */
 }
 
 .cardslider.in-viewport > div > p {
@@ -15,15 +16,6 @@
 	margin: auto;
 	gap: 40px;
 	padding: 55px 0px;
-	overflow-x: scroll; /* Enable horizontal scrolling when content overflows */
-	scrollbar-width: none; /* Firefox */
-	-ms-overflow-style: none; /* Internet Explorer/Edge */
-	animation: scrollRight 10s linear infinite;
-}
-
-.cardContainer::-webkit-scrollbar {
-	/* Webkit (Safari, Chrome) scrollbar */
-	display: none; /* Hide the scrollbar */
 }
 
 .cardContainer > div {

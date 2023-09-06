@@ -11,6 +11,8 @@ gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 
 const CardSlider = () => {
 	const pElementRef = useRef(null);
+	const cardContainerRef = useRef(null);
+
 	const [ref, inView] = useInView({
 		triggerOnce: false, // Allow the animation to run each time it's in view
 		threshold: 0.5, // Adjust the threshold as needed
@@ -36,6 +38,35 @@ const CardSlider = () => {
 		}
 	}, [inView]);
 
+	useEffect(() => {
+		const cardContainer = cardContainerRef.current;
+		const pElement = pElementRef.current;
+
+		if (inView) {
+			const cardWidth = pElement.clientWidth;
+			const containerWidth = cardContainer.clientWidth;
+
+			const animation = gsap.fromTo(
+				cardContainer,
+				{ x: containerWidth }, // Start with initial x position outside the container
+				{
+					x: -containerWidth, // Move to the left by the width of the container
+					duration: 10, // Adjust the duration as needed
+					ease: 'linear',
+					repeat: -1, // Repeat the animation infinitely
+				},
+			);
+
+			// Pause the animation when not in view
+			ScrollTrigger.create({
+				trigger: pElement,
+				start: 'top center',
+				end: 'bottom center',
+				onEnter: () => animation.play(),
+				onLeaveBack: () => animation.pause(),
+			});
+		}
+	}, [inView]);
 	return (
 		<div className={styles.cardslider}>
 			<div ref={ref}>
@@ -45,7 +76,7 @@ const CardSlider = () => {
 				</p>
 			</div>
 
-			<div className={styles.cardContainer}>
+			<div className={styles.cardContainer} ref={cardContainerRef}>
 				{' '}
 				<Card sx={{ background: '#ffc6c6', transform: 'rotate(10deg)' }}>
 					{' '}
