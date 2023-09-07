@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import Top from '../components/top/top';
+import Top from '../components/top/Top';
 import CardSlider from '../components/CardSlider/CardSlider';
 import Card2 from '../components/Card2/Card2';
 import VerticalStepper from '../components/VerticalStepper/VerticalStepper';
