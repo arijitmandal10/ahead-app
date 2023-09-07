@@ -1,34 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Title
 
-## Getting Started
+**Ahead App**
 
-First, run the development server:
+## Short Summary
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The Ahead App is a Next.js project designed to boost emotional intelligence by providing bite-sized, science-driven tools to users. The application features various components, animations, and interactive sections to engage users in their journey towards self-improvement.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Folder Structure
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The project follows the following folder structure:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **app** (folder):
+   - **assets** (folder): Contains various image assets used in the project.
+     - `footer.png`: Image for the project footer.
+     - `icon1.png`: Icon image 1.
+     - `icon2.png`: Icon image 2.
+     - `img1.png`: Image 1.
+     - `top.png`: Top image.
 
-## Learn More
+   - **components** (folder): Contains React components used in the project.
+     - `Card2.jsx`: React component for Card2.
+     - `card2.module.css`: CSS module for Card2 component.
 
-To learn more about Next.js, take a look at the following resources:
+     - `CardSlider.jsx`: React component for CardSlider.
+     - `cardslider.module.css`: CSS module for CardSlider component.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+     - `Navbar.jsx`: React component for Navbar.
+     - `navbar.module.css`: CSS module for Navbar component.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+     - `Open.jsx`: React component for Open.
+     - `open.module.css`: CSS module for Open component.
 
-## Deploy on Vercel
+     - `VerticalStepper.jsx`: React component for VerticalStepper.
+     - `verticalstepper.module.css`: CSS module for VerticalStepper component.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+     - `Top.jsx`: React component for Top.
+     - `top.module.css`: CSS module for Top component.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   - **pages** (folder):
+     - `Main.jsx`: The main page of your Next.js application.
+
+   - `favicon.ico`: Favicon for the project.
+   - `globals.css`: Global CSS styles for the project.
+   - `layout.js`: Layout configuration for the project.
+   - `page.js`: Page configuration for the project.
+
+2. **public** (folder): Publicly accessible files can be placed here.
+
+3. `.gitignore`: Git configuration to specify files and directories that should be ignored.
+
+4. `README.md`: This file will be created later with project information.
+
+5. `jsconfig.json`: Configuration file for JavaScript and TypeScript projects.
+
+6. `next.config.js`: Configuration file for Next.js.
+
+## Tech Stack and Hooks Used
+
+- **Tech Stack**:
+  - React
+  - Next.js
+  - Material-UI
+  - GSAP (GreenSock Animation Platform)
+
+- **Hooks Used**:
+  - useEffect
+  - useRef
+  - useState
+  - ScrollTrigger (GSAP)
+  - useInView (react-intersection-observer)
+
+## Screenshots
+
+![Screenshot (40)](https://github.com/arijitmandal10/ahead-app/assets/114182784/7f15955f-6ad4-43be-8352-80fcde1fd5b9)
+
+![Screenshot (41)](https://github.com/arijitmandal10/ahead-app/assets/114182784/b3213b25-92c0-476c-bee7-32417c0e66e1)
+
+![Screenshot (43)](https://github.com/arijitmandal10/ahead-app/assets/114182784/4cfe78dd-b538-413c-bd16-9e99a11990bb)
+
+## Deployment
+
+The project is deployed on Vercel and can be accessed [here](https://ahead-app-arijit-git-main-arijitmandal999-gmailcom.vercel.app/).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
