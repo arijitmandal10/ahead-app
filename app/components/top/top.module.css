@@ -12,6 +12,7 @@
 }
 .card > div > img:hover {
 	transform: scale(1.07);
+	cursor: pointer;
 }
 .card > div {
 	display: flex;

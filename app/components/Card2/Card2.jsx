@@ -11,17 +11,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Card2 = () => {
 	const cardRef = useRef(null);
+	const imageRef = useRef(null);
 
 	useEffect(() => {
 		const card = cardRef.current;
+		const image = imageRef.current;
 
 		// Initialize the animation timeline
 		const tl = gsap.timeline({
 			scrollTrigger: {
+				id: 'card2Trigger', // Add an ID to the ScrollTrigger instance
 				trigger: card,
-				start: 'top 80%',
-				end: 'bottom 20%',
-				scrub: true, // Smooth scrubbing effect
+				start: 'top 60%',
+				end: 'bottom 50%',
+				once: true, // Trigger the animation only once
 			},
 		});
 
@@ -29,17 +32,28 @@ const Card2 = () => {
 		tl.fromTo(
 			card.querySelector('.left'),
 			{ x: -50, opacity: 0, scale: 0.5 },
-			{ x: 0, opacity: 1, scale: 1, duration: 2, ease: 'elastic.out(1, 0.)' },
+			{ x: 0, opacity: 1, scale: 1, duration: 2, ease: 'elastic.out(1, 0.5)' },
 		);
 
 		tl.fromTo(
 			card.querySelector('.right'),
 			{ x: 50, opacity: 0, scale: 0.5 },
-			{ x: 0, opacity: 1, scale: 1, duration: 2, ease: 'elastic.out(1, 0.4)' },
-			'-=0.5', // Delay the right-side animation slightly
+			{ x: 0, opacity: 1, scale: 1, duration: 2, ease: 'elastic.out(1, 0.5)' },
+			'-=2', // Delay the right-side animation by 2 seconds
 		);
 
-		// You can add more animations within this timeline as needed
+		// 3D rotation animation for the image
+		tl.to(
+			image,
+			{
+				duration: 4, // Adjust the duration for a slower rotation
+				rotationY: 360, // Rotate around the Y-axis (360 degrees)
+				rotationX: 360, // Rotate around the X-axis (360 degrees)
+				transformOrigin: 'center center', // Rotate around the center of the image
+				ease: 'power4.inOut', // Use easing for a smoother rotation effect
+			},
+			'-=2', // Same delay as the right-side animation
+		);
 
 		return () => {
 			// Kill the ScrollTrigger and animations when the component unmounts
@@ -53,7 +67,16 @@ const Card2 = () => {
 			<div className={`${styles.left} left`}>
 				<h4 style={{ margin: '30px' }}>Built out of frustration</h4>
 				<p style={{ margin: '30px' }}>Meet the ahead app</p>
-				<Image src={img1} width={550} height={350} />
+				<Image
+					ref={imageRef}
+					src={img1}
+					width={550}
+					height={350}
+					style={{
+						transformStyle: 'preserve-3d', // Enable 3D rendering for the image
+						perspective: '1000px', // Set a perspective value for 3D space
+					}}
+				/>
 			</div>
 			<div className={`${styles.right} right`}>
 				<Typography variant='h6' component='h6'>

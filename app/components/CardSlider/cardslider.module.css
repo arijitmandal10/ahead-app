@@ -25,6 +25,11 @@
 	font-size: 14px;
 	margin-right: 10px;
 	border-radius: 14px;
+	transition: transform 0.3s ease-in-out;
+}
+.cardContainer div:hover {
+	cursor: pointer;
+	transform: scale(1.05);
 }
 
 .cardContainer > div:last-child {

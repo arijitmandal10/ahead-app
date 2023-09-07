@@ -7,6 +7,11 @@
 	margin: 70px auto;
 	background: #ffedd370;
 	border-radius: 23px;
+	transition: transform 0.3s ease-in-out;
+}
+.card2 :hover {
+	cursor: pointer;
+	transform: scale(1.05);
 }
 .right {
 	display: flex;
@@ -21,4 +26,13 @@
 	align-self: center;
 	opacity: 0.7;
 	line-height: 35px;
+}
+
+.left > img {
+	width: 77%;
+	border-radius: 52%;
+	box-shadow: 1px 1px 12px 0px black;
+}
+.left > img:hover {
+	box-shadow: 1px 1px 12px 0px rgb(255, 131, 131);
 }

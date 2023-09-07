@@ -1,8 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './verticalstepper.module.css';
 import icon2 from '../../assets/icon2.png';
 import Image from 'next/image';
+import gsap from 'gsap';
 import { Stepper, Step, StepLabel, Typography, Card } from '@mui/material';
 
 const steps = [
@@ -24,10 +25,86 @@ const steps = [
 
 const VerticalStepper = () => {
 	const [activeStep, setActiveStep] = useState(-1);
+	const topDivRef = useRef(null);
+	const bottomDivRef = useRef(null);
+
+	useEffect(() => {
+		const topDiv = topDivRef.current;
+
+		// Create a GSAP timeline animation
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: topDiv,
+				start: 'top 60%',
+				end: 'bottom center',
+				scrub: 2,
+			},
+		});
+
+		// Define the animation
+		tl.from(topDiv, {
+			x: -100, // Start position (off-screen to the left)
+			opacity: 0, // Start with opacity 0
+		});
+
+		tl.from(topDiv.querySelector('h3'), {
+			x: -50,
+			opacity: 0,
+		});
+
+		tl.from(topDiv.querySelector('p'), {
+			x: -50,
+			opacity: 0,
+		});
+
+		// Return a cleanup function
+		return () => {
+			tl.kill(); // Kill the animation when the component unmounts
+		};
+	}, []);
+
+	useEffect(() => {
+		const bottomDiv = bottomDivRef.current;
+
+		// Create a GSAP timeline animation
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: bottomDiv,
+				start: 'top center',
+				end: 'bottom center',
+				scrub: 1, // Adjust the scrub value for the speed of the animation
+			},
+		});
+
+		// Define the animation for the entire div
+		tl.from(bottomDiv, {
+			y: 100, // Start position (move up from below)
+			opacity: 0, // Start with opacity 0
+		});
+
+		// You can add more animation steps as needed
+
+		// Define animations for the child elements (h1 and p)
+		tl.from(bottomDiv.querySelector('h1'), {
+			y: 50,
+			opacity: 0,
+		});
+
+		tl.from(bottomDiv.querySelectorAll('p'), {
+			y: 50,
+			opacity: 0,
+			stagger: 0.2, // Add stagger for multiple elements
+		});
+
+		// Return a cleanup function
+		return () => {
+			tl.kill(); // Kill the animation when the component unmounts
+		};
+	}, []);
 
 	return (
 		<div className={styles.steps}>
-			<div className={styles.top}>
+			<div className={styles.top} ref={topDivRef}>
 				<h3 style={{ margin: '10px 70px' }}>Wrong with self-improvement & how we're fixing it.</h3>
 				<p style={{ margin: '10px 70px' }}>
 					Self-improvement. Ugh. <Image src={icon2} height={60} width={70} />
@@ -52,7 +129,7 @@ const VerticalStepper = () => {
 				</Stepper>
 			</div>
 
-			<div className={styles.bottom}>
+			<div className={styles.bottom} ref={bottomDivRef}>
 				<div style={{ width: '74%' }}>
 					{' '}
 					<h1>Be the best you with EQ</h1>

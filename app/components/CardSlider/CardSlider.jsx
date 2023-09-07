@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Card } from '@mui/material';
 import styles from './cardslider.module.css';
 import Image from 'next/image';
@@ -12,64 +12,54 @@ gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 const CardSlider = () => {
 	const pElementRef = useRef(null);
 	const cardContainerRef = useRef(null);
-
-	const [ref, inView] = useInView({
-		triggerOnce: false, // Allow the animation to run each time it's in view
-		threshold: 0.5, // Adjust the threshold as needed
-	});
+	const [animationTriggered, setAnimationTriggered] = useState(false);
 
 	useEffect(() => {
 		const pElement = pElementRef.current;
-
-		if (inView) {
-			gsap.fromTo(
-				pElement,
-				{ width: '0%' }, // Start with 0% width
-				{
-					width: '95%',
-					height: '67px',
-					overflow: ' hidden',
-					opacity: 1,
-
-					duration: 2,
-					ease: 'power2.out',
-				},
-			);
-		}
-	}, [inView]);
-
-	useEffect(() => {
 		const cardContainer = cardContainerRef.current;
-		const pElement = pElementRef.current;
 
-		if (inView) {
+		if (!animationTriggered) {
 			const cardWidth = pElement.clientWidth;
 			const containerWidth = cardContainer.clientWidth;
 
 			const animation = gsap.fromTo(
 				cardContainer,
-				{ x: containerWidth }, // Start with initial x position outside the container
+				{ x: containerWidth },
 				{
-					x: -containerWidth, // Move to the left by the width of the container
+					x: -containerWidth,
 					duration: 10,
 					ease: 'linear',
-					repeat: -1, // Repeat the animation infinitely
+					repeat: -1,
 				},
 			);
 
-			// Pause the animation when not in view
 			ScrollTrigger.create({
 				trigger: pElement,
 				start: 'top center',
 				end: 'bottom center',
-				onEnter: () => animation.play(),
+				onEnter: () => {
+					gsap.fromTo(
+						pElement,
+						{ width: '0%' },
+						{
+							width: '95%',
+							height: '67px',
+							overflow: 'hidden',
+							opacity: 1,
+							duration: 2,
+							ease: 'power2.out',
+						},
+					);
+					animation.play();
+					setAnimationTriggered(true);
+				},
 				onLeaveBack: () => animation.pause(),
 			});
 		}
-	}, [inView]);
+	}, [animationTriggered]);
 	return (
 		<div className={styles.cardslider}>
-			<div ref={ref}>
+			<div>
 				<p ref={pElementRef} style={{ opacity: 0, transform: 'translateX(-20px)' }}>
 					Does this sound familiar...
 					<Image height={60} width={70} src={icon1} />
